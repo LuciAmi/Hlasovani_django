@@ -39,14 +39,19 @@
         {% block header %}
             <nav class="navbar navbar-default">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="{% url 'poll_list' %}">Hlasování</a>
+                    <a class="navbar-brand" href="{% url 'poll_list' %}">Hlasování (Hlavní stranka)</a>
                 </div>
             </nav>
         {% endblock header %}
 
         {## A tady je místo pro obsah – tohle by každá stránka měla vyplnit po svém. ##}
         {% block content %}
+        
         {% endblock content %}
+
+
+
+
 
         {## A nakonec skripty, které definují funkčnost stránky. ##}
         {## Tohle je součást Bootstrapu (viz voting/static/css/voting.css). ##}

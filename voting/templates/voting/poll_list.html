@@ -11,12 +11,13 @@
 
 {## A vlastní obsah: ##}
 {% block content %}
+{% load staticfiles %}
     <div class="container">
         {## Nadpis (h1) ##}
-        <h1>Hlasování</h1>
+        <h1>Hlasování(Ankety)</h1>
         {## Odstavec (p) s instrukcemi ##}
         <p>
-            Vyber si, kde chceš hlasovat:
+            O čem chceš hlasovat?:
         </p>
         {## Odrážkový seznam ... ##}
         <ul>
@@ -28,4 +29,11 @@
             {% endfor %}
         </ul>
     </div>
+
+  <div id = "odkazy">
+    <a href="{% url 'info' %}">Informace</a> <br>
+    <a href="{% url 'vote' %}">Nové hlasování</a>
+  </div>
+    <img src= "{% static 'kocka.png' %}", width="120", align = "right">
+
 {% endblock content %}

@@ -18,7 +18,7 @@
         <h1>{{ poll.title }}</h1>
         {## Odstavec (p) s instrukcemi ##}
         <p>
-            Hlasuj!
+          Vyjádři svůj názor - vyber si !
         </p>
         {## Formulář, který po odeslání pošle POST požadavek na stejnou adresu ##}
         <form method="POST" action="">
@@ -27,7 +27,7 @@
                 {## První řádek tabulky s nadpisem sloupců: "jméno", a pak ##}
                 {## jeden nadpis pro každou Možnost ##}
                 <tr>
-                    <th>Jméno</th>
+                    <th>Jméno či přezdívka</th>
                     {% for option in poll.options.all %}
                         <th>{{ option.title }}</th>
                     {% endfor %}
@@ -42,7 +42,7 @@
                             {% if value == None %}
                                 <td>?</td>
                             {% elif value %}
-                                <td class="yes">OK</td>
+                                <td class="yes">ANO</td>
                             {% else %}
                                 <td class="no">NE</td>
                             {% endif %}
@@ -77,4 +77,5 @@
             {% csrf_token %}
         </form>
     </div>
+    <a href="{% url 'newoptions' pk=poll.pk %}">Přidat další možnosti</a>
 {% endblock content %}

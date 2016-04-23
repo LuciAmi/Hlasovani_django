@@ -18,10 +18,10 @@ def add_initial_poll(apps, schema_editor):
     # version than this migration expects. We use the historical version.
     Poll = apps.get_model("voting", "Poll")
     Option = apps.get_model("voting", "Option")
-    poll = Poll(title='Kdy dáme sraz?')
+    poll = Poll(title='Na jaký film se podíváme?')
     poll.save()
 
-    for title in '9. 4.', '16. 4.', '23. 4.', '28. 4.':
+    for title in '3:15 zemřeš', 'PS: Miluji Tě', 'Scary Movie', 'Bathory',:
         option = Option(poll=poll, title=title)
         option.save()
 

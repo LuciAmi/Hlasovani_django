@@ -9,6 +9,11 @@ urlpatterns = [
     ## funkcí "poll_list" z views.py.
     ## Tahle funkce vrací stránku se seznamem všech hlasování.
     url(r'^$', views.poll_list, name='poll_list'),
+    url(r'^/info', views.info, name = 'info'),
+    url(r'^/vote', views.vote, name = 'vote'),
+    url(r'^/(?P<pk>\d+)/newoptions', views.newoptions, name = 'newoptions'), # adresa na jakoukoliv anketu
+
+
 
     ## Adresa jako "polls/123" se zpracuje funkcí "poll_detail" z views.py.
     ## Tahle funkce bere argument "pk" (proto ono "(?P<pk>" v regulárním

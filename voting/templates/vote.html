@@ -1,0 +1,42 @@
+{% extends "voting/_layout.html" %}
+<html lang="cs">
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+<body>
+{% block content %}
+  <div class="container">
+      {## Hlavička (h1) ##}
+      {## "poll" je objekt třídy Poll z modulu models.py ##}
+      <h1>{{ poll.title }}</h1>
+      {## Odstavec (p) s instrukcemi ##}
+      <h3>  Chceš vlastní anketu? Vytvoř si.</h3>
+      {## Formulář, který po odeslání pošle POST požadavek na stejnou adresu ##}
+      <form method="POST" action="">
+        <p> Název Ankety:</p>
+        <input type="text" name="title">
+        <p> Zadávej možnosti: </p>
+
+        <input type="text" name="options1">
+        <input type="text" name="options2">
+        <input type="text" name="options3">
+        <input type="text" name="options4">
+
+        <input type="submit" value="Vkladej!">
+        {% csrf_token %}
+      </form>
+  </div>
+
+  <a href="{% url 'poll_list' %}">Zpět</a>
+  
+
+  {% endblock content %}
+
+
+
+
+</body>
+
+</html>

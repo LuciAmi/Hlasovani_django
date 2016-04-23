@@ -1,0 +1,28 @@
+{% extends "voting/_layout.html" %}
+<html lang="cs">
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+<body>
+  {% block content %}
+  <div class="container">
+      <h1>{{ poll.title }}</h1>
+
+      <h3>  Zadej vlastní možnost: </h3>
+      {## Formulář, který po odeslání pošle POST požadavek na stejnou adresu ##}
+      <form method="POST" action="">
+        <p> Zadávej možnosti: </p>
+        <input type="text" name="option">
+        <input type="submit" value="Vkladej!">
+        {% csrf_token %}
+      </form>
+  </div>
+{% endblock content %}
+
+
+
+</body>
+
+</hmtl>

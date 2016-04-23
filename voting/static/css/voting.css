@@ -27,6 +27,8 @@ table.poll {
 table.poll td {
     /* ## ... budou zarovnané na střed */
     text-align: center;
+    font-family: monospace;
+
 }
 
 /* ## Všechny buňky s class="yes" tabulky s class="poll" ... */
@@ -34,10 +36,16 @@ table.poll td.yes {
     /* ## ... budou mít zelené pozadí.
      * ## Barvičky se dají vybírat třeba na http://www.colorpicker.com/
      */
-    background-color: #5cb85c;
+    background-color: lime;
 }
 
 /* ## Podobně pro "no" -- červené pozadí */
 table.poll td.no {
-    background-color: #d9534f;
+    background-color: #FF0033 ;
+}
+
+#odkazy {
+  text-align: center;
+  
+
 }

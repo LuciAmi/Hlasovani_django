@@ -1,13 +1,43 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.db import transaction
 
-from voting.models import Poll, Record, Vote
+from voting.models import Poll, Record, Vote, Option
 
 ## Views – funkce, které vracejí webové odpovědi.
 ## Každá z těchto funkcí obsluhuje nějakou adresu (viz urls.py),
 ## bere jako argument "požadavek" od prohlížeče, a vrací odpověď – v našem
 ## případě webovou stránku vyrobenou ze šablony.
 
+def info(request):
+   """Informace"""
+   return render(request, 'info.html')
+
+
+def vote(request):
+    """Nové hlasování"""
+    if request.POST:
+        print('Uložilo se:',request.POST)
+        poll = Poll(title = request.POST['title']) #vytvoří novou tabulku(hlasování)
+        poll.save()
+        options1 = Option(title = request.POST['options1'],poll= poll) #vytvoří možnosti do tabulky
+        options2 = Option(title = request.POST['options2'],poll= poll)
+        options3 = Option(title = request.POST['options3'],poll= poll)
+        options4 = Option(title = request.POST['options4'],poll= poll)
+        options1.save()
+        options2.save()
+        options3.save()
+        options4.save()
+    return render(request, 'vote.html')
+
+def newoptions(request,pk): #definovat pk -- > čísla stránek, aby veděl, na kterou má jít
+    """Nová možnost"""
+    if request.POST:
+        print('Možnost se uložila:', request.POST)
+        poll = get_object_or_404(Poll, pk=pk)
+        option = Option(title = request.POST['option'], poll = poll)
+        option.save()
+        return redirect('poll_detail', pk=pk)
+    return render(request, 'newoptions.html')
 
 def poll_list(request):
     """Seznam všech hlasování"""

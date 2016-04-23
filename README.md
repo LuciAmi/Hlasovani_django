@@ -13,7 +13,7 @@ Instalace:
 
 Spuštění:
 
-    python manage.py runserver
+    python manage.py runserver 
 
 
 # Co je tu k vidění?
@@ -87,5 +87,3 @@ je přidávat do Gitu.
 `admin.py`: Konfigurace administračního rozhraní
 
 `tests.py`: Testy. Zatím žádné.
-
-
